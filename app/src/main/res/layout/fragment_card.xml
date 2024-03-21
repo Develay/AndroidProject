@@ -8,8 +8,9 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/logo_carmatch"/>
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/logo_carmatch"
+        />
 
 </FrameLayout>

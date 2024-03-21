@@ -24,6 +24,8 @@ public class Memory extends AppCompatActivity {
         fragments.add(Card.newInstance("2+6=", "8"));
         fragments.add(Card.newInstance("6+0=", "6"));
         fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         for (Card frag : fragments) {
             ft.add(R.id.fragment_container1, frag);
@@ -32,9 +34,50 @@ public class Memory extends AppCompatActivity {
         fragments.add(Card.newInstance("2+6=", "8"));
         fragments.add(Card.newInstance("6+0=", "6"));
         fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
 
         for (Card frag : fragments) {
             ft.add(R.id.fragment_container2, frag);
+        }
+        fragments = new ArrayList<>();
+        fragments.add(Card.newInstance("2+6=", "8"));
+        fragments.add(Card.newInstance("6+0=", "6"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+
+        for (Card frag : fragments) {
+            ft.add(R.id.fragment_container3, frag);
+        }
+        fragments = new ArrayList<>();
+        fragments.add(Card.newInstance("2+6=", "8"));
+        fragments.add(Card.newInstance("6+0=", "6"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+
+        for (Card frag : fragments) {
+            ft.add(R.id.fragment_container4, frag);
+        }
+        fragments = new ArrayList<>();
+        fragments.add(Card.newInstance("2+6=", "8"));
+        fragments.add(Card.newInstance("6+0=", "6"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        for (Card frag : fragments) {
+            ft.add(R.id.fragment_container5, frag);
+        }
+        fragments = new ArrayList<>();
+        fragments.add(Card.newInstance("2+6=", "8"));
+        fragments.add(Card.newInstance("6+0=", "6"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+        fragments.add(Card.newInstance("5+6=", "11"));
+
+        for (Card frag : fragments) {
+            ft.add(R.id.fragment_container6, frag);
         }
         ft.commit();
     }
