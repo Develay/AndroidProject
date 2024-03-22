@@ -1,80 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_grey"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     tools:context=".Memory">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Memory"
-        android:textColor="@color/orange"
-        android:textSize="30sp"
-        android:fontFamily="@font/gemstone"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:weightSum="6">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/fragment_container1"
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:numColumns="5" />
+
+        <Button
+            android:id="@+id/resetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="100dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:id="@+id/fragment_container2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:id="@+id/fragment_container3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:id="@+id/fragment_container4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:id="@+id/fragment_container5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:id="@+id/fragment_container6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_weight="1"/>
-
+            android:backgroundTint="@color/orange"
+            android:text="@string/reset" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
