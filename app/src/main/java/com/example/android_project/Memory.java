@@ -2,6 +2,7 @@ package com.example.android_project;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +19,7 @@ public class Memory extends AppCompatActivity {
     private ActivityMemoryBinding binding;
     private GridView gridView;
     private MemoryAdapter adapter;
-    private ArrayList<Integer> cards;
+    private final ArrayList<Integer> cards;
     private int firstCard, secondCard;
     private boolean isFirst = true;
 
@@ -51,6 +52,7 @@ public class Memory extends AppCompatActivity {
                 isFirst = false;
             } else {
                 secondCard = position;
+                adapter.showCard(secondCard);
                 checkMatch();
                 isFirst = true;
             }
@@ -71,6 +73,11 @@ public class Memory extends AppCompatActivity {
                 adapter.hideCard(secondCard);
             }, 1000); // Delay to allow the user to see the cards
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     private void resetGame() {

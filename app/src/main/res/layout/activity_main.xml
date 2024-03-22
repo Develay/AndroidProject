@@ -17,9 +17,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CAR MATCH"
+            android:text="@string/car_match"
             android:textSize="80sp"
             android:fontFamily="@font/gemstone"
+            android:textColor="@color/orange"
             android:layout_gravity="center"
             android:layout_marginTop="80dp"
             android:layout_weight="1"/>
