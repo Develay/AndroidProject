@@ -11,7 +11,7 @@ import com.example.android_project.databinding.ActivityMemoryBinding;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
+import java.util.Random;
 
 
 public class Memory extends AppCompatActivity {
@@ -24,6 +24,7 @@ public class Memory extends AppCompatActivity {
     private boolean isFirst = true;
 
     public Memory() {
+        Random random = new Random();
         cards = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
             cards.add(i);
@@ -31,7 +32,7 @@ public class Memory extends AppCompatActivity {
         adapter = new MemoryAdapter(this, cards);
     }
 
-    @Override
+    @Override 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory);
@@ -65,7 +66,6 @@ public class Memory extends AppCompatActivity {
     private void checkMatch() {
         if ((cards.get(firstCard).equals(cards.get(secondCard)))) {
             // Matched
-
         } else {
             // Not matched, hide the cards
             gridView.postDelayed(() -> {
