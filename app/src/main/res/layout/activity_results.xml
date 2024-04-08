@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     tools:context=".Results">
 
     <LinearLayout
@@ -26,23 +27,26 @@
             android:textSize="80sp" />
 
         <TextView
+            android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/dark_blue"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
             android:text="nombre_de_coups"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_weight="1"/>
 
         <TextView
+            android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/dark_blue"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
             android:text="durée_de_la_partie"
-            android:textSize="20sp" />
-
+            android:textSize="20sp"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

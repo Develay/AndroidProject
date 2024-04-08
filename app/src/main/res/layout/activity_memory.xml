@@ -13,36 +13,56 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:weightSum="4">
+        android:weightSum="3">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Car Match"
-            android:textSize="30sp"
-            android:fontFamily="@font/gemstone"
-            android:textColor="@color/orange"
-            android:gravity="center"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:fontFamily="@font/gemstone"
+            android:gravity="center"
+            android:text="@string/car_match"
+            android:textColor="@color/orange"
+            android:textSize="30sp" />
 
         <GridView
             android:id="@+id/gridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:numColumns="5"
-            android:layout_weight="2"/>
+            android:layout_weight="1"
+            android:numColumns="5" />
 
-        <Button
-            android:id="@+id/resetButton"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:backgroundTint="@color/orange"
-            android:textColor="@color/white"
-            android:text="@string/reset"
-            android:layout_weight="1"/>
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/resetButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="100dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange"
+                android:text="@string/reset"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/validateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="100dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/sky_blue"
+                android:text="@string/validate"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

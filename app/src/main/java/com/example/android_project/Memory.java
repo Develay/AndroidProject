@@ -1,6 +1,8 @@
 package com.example.android_project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.widget.GridView;
 
@@ -18,9 +20,16 @@ public class Memory extends AppCompatActivity {
     private GridView gridView;
     private MemoryAdapter adapter;
     private final ArrayList<Integer> cards;
+
     private int firstCard, secondCard;
     private boolean isFirst = true;
     private  int nbCards = 30;
+
+    private int nbCoups = 0;
+
+    private CountDownTimer timer;
+    private long timeElapsed;
+    private boolean isFirstCardFlipped = false;
 
     public Memory() {
         cards = new ArrayList<>(); // List of cards with the pair values
@@ -49,8 +58,7 @@ public class Memory extends AppCompatActivity {
     }
 
     private void checkMatch() {
-        int v1 = cards.get(firstCard);
-        int v2 = cards.get(secondCard);
+        nbCoups++;
         // Matched
         if ((cards.get(firstCard).equals(cards.get(secondCard)))) { // Check if the cards match
             Log.e("Memory", "matched");
@@ -66,8 +74,13 @@ public class Memory extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         //Click listener for grid view
         gridView.setOnItemClickListener((parent, view, position, id) -> {
+            if (!isFirstCardFlipped) {
+                startTimer();
+                isFirstCardFlipped = true;
+            }
             if (isFirst) {
                 firstCard = position;
                 adapter.showCard(firstCard);
@@ -85,12 +98,42 @@ public class Memory extends AppCompatActivity {
 
         //Click listener for reset button
         findViewById(R.id.resetButton).setOnClickListener(v -> resetGame());
+
+        findViewById(R.id.validateButton).setOnClickListener(v -> finish());
     }
 
     private void resetGame() {
         Collections.shuffle(cards);
         adapter = new MemoryAdapter(this, cards);
         gridView.setAdapter(adapter);
+    }
+
+    public void finish() {
+        stopTimer();
+        Intent intent = new Intent(this, Results.class);
+        intent.putExtra("SCORE", nbCoups);
+        intent.putExtra("TIMER", timeElapsed);
+        startActivity(intent);
+    }
+
+    private void startTimer() {
+        timer = new CountDownTimer(3600000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeElapsed = 3600000 - millisUntilFinished;
+            }
+
+            @Override
+            public void onFinish() {
+                finish();
+            }
+        }.start();
+    }
+
+    private void stopTimer() {
+        if (timer != null) {
+            timer.cancel();
+        }
     }
 }
 
