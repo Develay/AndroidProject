@@ -64,11 +64,12 @@
                 android:layout_marginStart="100dp"
                 app:srcCompat="@drawable/france" />
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_language"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"/>
+                android:gravity="center"
+                />
 
             <ImageView
                 android:id="@+id/UK_flag"
