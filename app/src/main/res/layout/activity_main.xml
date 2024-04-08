@@ -27,7 +27,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/Logo"
             android:layout_width="wrap_content"
             android:layout_height="170dp"
             android:layout_gravity="center"
@@ -45,6 +45,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:backgroundTint="@color/orange"
+            android:textColor="@color/white"
             android:text="@string/play"
             android:textSize="30sp" />
 
@@ -64,10 +65,10 @@
                 app:srcCompat="@drawable/france" />
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/switch_language"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center" />
+                android:gravity="center"/>
 
             <ImageView
                 android:id="@+id/UK_flag"

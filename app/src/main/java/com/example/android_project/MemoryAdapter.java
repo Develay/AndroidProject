@@ -58,65 +58,35 @@ public class MemoryAdapter extends BaseAdapter {
 
             switch (cardValue) {
                 case 0:
-                    return R.drawable.nothing;
+                    return R.drawable.c1;
                 case 1:
-                    return R.drawable.ok;
+                    return R.drawable.c2;
                 case 2:
-                    return R.drawable.nothing;
+                    return R.drawable.c3;
                 case 3:
-                    return R.drawable.ok;
+                    return R.drawable.c4;
                 case 4:
-                    return R.drawable.nothing;
+                    return R.drawable.c5;
                 case 5:
-                    return R.drawable.ok;
+                    return R.drawable.c6;
                 case 6:
-                    return R.drawable.nothing;
+                    return R.drawable.c7;
                 case 7:
-                    return R.drawable.ok;
+                    return R.drawable.c8;
                 case 8:
-                    return R.drawable.nothing;
+                    return R.drawable.c9;
                 case 9:
-                    return R.drawable.ok;
+                    return R.drawable.c10;
                 case 10:
-                    return R.drawable.nothing;
+                    return R.drawable.c11;
                 case 11:
-                    return R.drawable.nothing;
+                    return R.drawable.c12;
                 case 12:
-                    return R.drawable.ok;
+                    return R.drawable.c13;
                 case 13:
-                    return R.drawable.nothing;
+                    return R.drawable.c14;
                 case 14:
-                    return R.drawable.ok;
-                case 15:
-                    return R.drawable.nothing;
-                case 16:
-                    return R.drawable.ok;
-                case 17:
-                    return R.drawable.nothing;
-                case 18:
-                    return R.drawable.ok;
-                case 19:
-                    return R.drawable.nothing;
-                case 20:
-                    return R.drawable.ok;
-                case 21:
-                    return R.drawable.nothing;
-                case 22:
-                    return R.drawable.ok;
-                case 23:
-                    return R.drawable.nothing;
-                case 24:
-                    return R.drawable.ok;
-                case 25:
-                    return R.drawable.nothing;
-                case 26:
-                    return R.drawable.ok;
-                case 27:
-                    return R.drawable.nothing;
-                case 28:
-                    return R.drawable.ok;
-                case 29:
-                    return R.drawable.nothing;
+                    return R.drawable.c15;
 
                 default:
                     return R.drawable.logo_carmatch;

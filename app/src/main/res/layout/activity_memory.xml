@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_grey"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
     tools:context=".Memory">
 
 
@@ -14,15 +12,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Car Match"
+            android:textSize="30sp"
+            android:fontFamily="@font/gemstone"
+            android:textColor="@color/orange"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"/>
 
         <GridView
             android:id="@+id/gridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:numColumns="5" />
+            android:numColumns="5"
+            android:layout_weight="2"/>
 
         <Button
             android:id="@+id/resetButton"
@@ -30,7 +40,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:backgroundTint="@color/orange"
-            android:text="@string/reset" />
+            android:textColor="@color/white"
+            android:text="@string/reset"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
