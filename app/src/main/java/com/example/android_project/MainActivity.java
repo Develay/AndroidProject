@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.android_project.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
@@ -22,13 +22,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        binding.play.setOnClickListener(this);
-    }
-
-
-    @Override
-    public void onClick(View view) {
-        Intent intent = new Intent(this, Memory.class);
-        startActivity(intent);
+        binding.level1.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Memory.class);
+            intent.putExtra("level", 20);
+            startActivity(intent);
+        });
+        binding.level2.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Memory.class);
+            intent.putExtra("level", 30);
+            startActivity(intent);
+        });
+        binding.level3.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Memory.class);
+            intent.putExtra("level", 40);
+            startActivity(intent);
+        });
     }
 }

@@ -19,7 +19,7 @@ public class Memory extends AppCompatActivity {
 
     private GridView gridView;
     private MemoryAdapter adapter;
-    private final ArrayList<Integer> cards;
+    private ArrayList<Integer> cards;
 
     private int firstCard, secondCard;
     private boolean isFirst = true;
@@ -32,6 +32,24 @@ public class Memory extends AppCompatActivity {
     private boolean isFirstCardFlipped = false;
 
     public Memory() {
+
+    }
+
+    @Override 
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_memory);
+
+        gridView = findViewById(R.id.gridView);
+
+        // Récupérer les données envoyées via l'intent
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            // Extraire la valeur de "level" de l'intent
+            int level = extras.getInt("level", 20); // La valeur par défaut est 20 si "level" n'est pas trouvé
+            nbCards = level;
+        }
+
         cards = new ArrayList<>(); // List of cards with the pair values
         for (int i = 0; i < nbCards/2; i++) {
             cards.add(i);
@@ -41,14 +59,6 @@ public class Memory extends AppCompatActivity {
         Collections.shuffle(cards);
 
         adapter = new MemoryAdapter(this, cards); // Adapter for the grid view
-    }
-
-    @Override 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_memory);
-
-        gridView = findViewById(R.id.gridView);
 
         if (gridView != null) { // Set the adapter for the grid view
             gridView.setAdapter(adapter);
