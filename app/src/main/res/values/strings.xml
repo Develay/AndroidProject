@@ -5,4 +5,5 @@
     <string name="play">PLAY</string>
     <string name="reset">Reset</string>
     <string name="car_match">CAR MATCH</string>
+    <string name="score">score</string>
 </resources>
