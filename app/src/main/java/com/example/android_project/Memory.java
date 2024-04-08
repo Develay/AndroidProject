@@ -23,15 +23,15 @@ public class Memory extends AppCompatActivity {
     private  int nbCards = 30;
 
     public Memory() {
-        cards = new ArrayList<>();
+        cards = new ArrayList<>(); // List of cards with the pair values
         for (int i = 0; i < nbCards/2; i++) {
             cards.add(i);
             cards.add(i);
         }
 
-        //Collections.shuffle(cards);
+        Collections.shuffle(cards);
 
-        adapter = new MemoryAdapter(this, cards);
+        adapter = new MemoryAdapter(this, cards); // Adapter for the grid view
     }
 
     @Override 
@@ -41,7 +41,7 @@ public class Memory extends AppCompatActivity {
 
         gridView = findViewById(R.id.gridView);
 
-        if (gridView != null) {
+        if (gridView != null) { // Set the adapter for the grid view
             gridView.setAdapter(adapter);
         } else {
             Log.e("Memory", "GridView is null");
@@ -52,7 +52,7 @@ public class Memory extends AppCompatActivity {
         int v1 = cards.get(firstCard);
         int v2 = cards.get(secondCard);
         // Matched
-        if ((cards.get(firstCard).equals(cards.get(secondCard)))) {
+        if ((cards.get(firstCard).equals(cards.get(secondCard)))) { // Check if the cards match
             Log.e("Memory", "matched");
         } else {
             // Not matched, hide the cards
@@ -73,7 +73,7 @@ public class Memory extends AppCompatActivity {
                 adapter.showCard(firstCard);
                 isFirst = false;
                 position = -1;
-            } else if (firstCard != position){
+            } else if (firstCard != position){ // Check if the same card is clicked
 
                 secondCard = position;
                 adapter.showCard(secondCard);
@@ -88,6 +88,7 @@ public class Memory extends AppCompatActivity {
     }
 
     private void resetGame() {
+        Collections.shuffle(cards);
         adapter = new MemoryAdapter(this, cards);
         gridView.setAdapter(adapter);
     }

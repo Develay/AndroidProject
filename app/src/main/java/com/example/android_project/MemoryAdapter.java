@@ -18,12 +18,15 @@ public class MemoryAdapter extends BaseAdapter {
     public MemoryAdapter(Context context, ArrayList<Integer> cards) {
         this.context = context;
         this.cards = cards;
+
+        // Initialize the card visibility list
         cardVisibility = new ArrayList<>();
         for (int i = 0; i < cards.size(); i++) {
             cardVisibility.add(false);
         }
     }
 
+    // Method to get the view of the grid item
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -39,7 +42,7 @@ public class MemoryAdapter extends BaseAdapter {
         }
 
         if (cardVisibility.get(position)) {
-            holder.imageView.setImageResource(getImageResource(cards.get(position)));
+            holder.imageView.setImageResource(getImageResource(position));
         } else {
             holder.imageView.setImageResource(R.drawable.logo_carmatch); // Set default back image
         }
@@ -56,7 +59,7 @@ public class MemoryAdapter extends BaseAdapter {
     private int getImageResource(int cardValue) {
         if (cardVisibility.get(cardValue)) {
 
-            switch (cardValue) {
+            switch (cards.get(cardValue)) {
                 case 0:
                     return R.drawable.c1;
                 case 1:
