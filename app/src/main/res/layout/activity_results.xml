@@ -20,11 +20,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
             android:fontFamily="@font/gemstone"
             android:text="@string/score"
             android:textColor="@color/sky_blue"
-            android:textSize="80sp" />
+            android:textSize="80sp"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/score"
@@ -46,6 +46,16 @@
             android:layout_marginTop="20dp"
             android:text="durée_de_la_partie"
             android:textSize="20sp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/replayButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/replay"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/sky_blue"
             android:layout_weight="1"/>
     </LinearLayout>
 

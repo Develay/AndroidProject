@@ -45,4 +45,16 @@ public class Results extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        findViewById(R.id.replayButton).setOnClickListener(v -> restartGame());
+    }
+
+    // Méthode pour redémarrer le jeu
+    public void restartGame() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

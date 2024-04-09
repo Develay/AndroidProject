@@ -23,7 +23,7 @@ public class Memory extends AppCompatActivity {
 
     private int firstCard, secondCard;
     private boolean isFirst = true;
-    private  int nbCards = 30;
+    private  float nbCards = 0;
 
     private int nbCoups = 0;
 
@@ -32,7 +32,6 @@ public class Memory extends AppCompatActivity {
     private boolean isFirstCardFlipped = false;
 
     public Memory() {
-
     }
 
     @Override 
@@ -77,7 +76,7 @@ public class Memory extends AppCompatActivity {
             gridView.postDelayed(() -> {
                 adapter.hideCard(firstCard);
                 adapter.hideCard(secondCard);
-            }, 1000); // Delay to allow the user to see the cards
+            }, 500); // Delay to allow the user to see the cards
         }
     }
 
@@ -95,14 +94,11 @@ public class Memory extends AppCompatActivity {
                 firstCard = position;
                 adapter.showCard(firstCard);
                 isFirst = false;
-                position = -1;
             } else if (firstCard != position){ // Check if the same card is clicked
-
                 secondCard = position;
                 adapter.showCard(secondCard);
                 checkMatch();
                 isFirst = true;
-                position = -1;
             }
         });
 
