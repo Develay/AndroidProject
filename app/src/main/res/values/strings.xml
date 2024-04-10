@@ -8,4 +8,6 @@
     <string name="car_match">CAR MATCH</string>
     <string name="score">score</string>
     <string name="replay">Replay</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="Results">Results</string>
 </resources>

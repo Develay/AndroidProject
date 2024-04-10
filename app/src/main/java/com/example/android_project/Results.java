@@ -13,6 +13,8 @@ public class Results extends AppCompatActivity {
     private ActivityResultsBinding binding;
     private String nbCoups;
 
+    private ScoreManager scoreManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +42,11 @@ public class Results extends AppCompatActivity {
                 scoreTextView.setText("Nombre de coups : " + nbCoups);
             }
             if (timeTextView != null) {
-                timeTextView.setText("Temps écoulé : " + minutes + ":" + String.format("%02d", seconds) + ":" + milliseconds + " ms");
+                timeTextView.setText("Temps écoulé : " + minutes + ":" + String.format("%02d", seconds) + ":" + milliseconds);
 
             }
+            scoreManager = new ScoreManager(this);
+            scoreManager.saveHighScore(nbCoups, timeElapsed);
         }
     }
 
@@ -50,11 +54,18 @@ public class Results extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         findViewById(R.id.replayButton).setOnClickListener(v -> restartGame());
+        findViewById(R.id.leaderboardButton).setOnClickListener(v -> openLeaderBoard());
     }
 
     // Méthode pour redémarrer le jeu
     public void restartGame() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    // Méthode pour ouvrir le tableau des scores
+    public void openLeaderBoard() {
+        Intent intent = new Intent(this, LeaderBoard.class);
         startActivity(intent);
     }
 }

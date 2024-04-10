@@ -92,7 +92,7 @@ public class MemoryAdapter extends BaseAdapter {
                     return R.drawable.c15;
 
                 default:
-                    return R.drawable.logo_carmatch;
+                    return R.drawable.nothing;
             }
         } else {
             return R.drawable.logo_carmatch;
