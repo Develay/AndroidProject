@@ -136,4 +136,8 @@ public class MemoryAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
+
+    public ArrayList<Boolean> getCardVisibility() {
+        return cardVisibility;
+    }
 }

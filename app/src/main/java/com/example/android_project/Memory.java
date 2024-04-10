@@ -70,7 +70,9 @@ public class Memory extends AppCompatActivity {
         nbCoups++;
         // Matched
         if ((cards.get(firstCard).equals(cards.get(secondCard)))) { // Check if the cards match
-            Log.e("Memory", "matched");
+            if (allCardsVisible()) {
+                finish();
+            }
         } else {
             // Not matched, hide the cards
             gridView.postDelayed(() -> {
@@ -104,8 +106,6 @@ public class Memory extends AppCompatActivity {
 
         //Click listener for reset button
         findViewById(R.id.resetButton).setOnClickListener(v -> resetGame());
-
-        findViewById(R.id.validateButton).setOnClickListener(v -> finish());
     }
 
     private void resetGame() {
@@ -140,6 +140,15 @@ public class Memory extends AppCompatActivity {
         if (timer != null) {
             timer.cancel();
         }
+    }
+
+    private boolean allCardsVisible() {
+        for (Boolean isVisible : adapter.getCardVisibility()) {
+            if (!isVisible) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
