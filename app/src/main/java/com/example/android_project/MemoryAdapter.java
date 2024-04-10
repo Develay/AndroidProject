@@ -61,35 +61,45 @@ public class MemoryAdapter extends BaseAdapter {
 
             switch (cards.get(cardValue)) {
                 case 0:
-                    return R.drawable.c1;
+                    return R.drawable.citroen_2ch;
                 case 1:
-                    return R.drawable.c2;
+                    return R.drawable.alpine_a110;
                 case 2:
-                    return R.drawable.c3;
+                    return R.drawable.audi_quattro;
                 case 3:
-                    return R.drawable.c4;
+                    return R.drawable.bugatti_chiron;
                 case 4:
-                    return R.drawable.c5;
+                    return R.drawable.chevrolet_camaro;
                 case 5:
-                    return R.drawable.c6;
+                    return R.drawable.dodge_ram;
                 case 6:
-                    return R.drawable.c7;
+                    return R.drawable.f1_mclaren;
                 case 7:
-                    return R.drawable.c8;
+                    return R.drawable.ferrari_f40;
                 case 8:
-                    return R.drawable.c9;
+                    return R.drawable.ford_gt40;
                 case 9:
-                    return R.drawable.c10;
+                    return R.drawable.lamborghini_huracan_sto;
                 case 10:
-                    return R.drawable.c11;
+                    return R.drawable.lancer_evolution_5;
                 case 11:
-                    return R.drawable.c12;
+                    return R.drawable.land_rover_defender;
                 case 12:
-                    return R.drawable.c13;
+                    return R.drawable.mazda_rx7;
                 case 13:
-                    return R.drawable.c14;
+                    return R.drawable.mercedes_classe_g;
                 case 14:
-                    return R.drawable.c15;
+                    return R.drawable.nissan_gtr_r34;
+                case 15:
+                    return R.drawable.peugeot_e208;
+                case 16:
+                    return R.drawable.porsche_gt3rs;
+                case 17:
+                    return R.drawable.r5_turbo;
+                case 18:
+                    return R.drawable.toyota_ae86;
+                case 19:
+                    return R.drawable.vw_coccinelle;
 
                 default:
                     return R.drawable.nothing;
