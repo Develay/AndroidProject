@@ -1,10 +1,12 @@
 package com.example.android_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.android_project.databinding.ActivityMainBinding;
 
@@ -28,19 +30,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, Memory.class);
             intent.putExtra("level", 20);
             startActivity(intent);
-            finish();
         });
         binding.level2.setOnClickListener(v -> {
             Intent intent = new Intent(this, Memory.class);
             intent.putExtra("level", 30);
             startActivity(intent);
-            finish();
         });
         binding.level3.setOnClickListener(v -> {
             Intent intent = new Intent(this, Memory.class);
             intent.putExtra("level", 40);
             startActivity(intent);
-            finish();
         });
         setLocale("default");
         binding.switchLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -59,5 +58,18 @@ public class MainActivity extends AppCompatActivity {
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Quitter l'application")
+                .setMessage("Voulez-vous vraiment quitter l'application ?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        MainActivity.super.onBackPressed();
+                    }
+                }).create().show();
     }
 }

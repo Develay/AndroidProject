@@ -1,11 +1,13 @@
 package com.example.android_project;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.widget.GridView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.android_project.databinding.ActivityMemoryBinding;
@@ -110,10 +112,12 @@ public class Memory extends AppCompatActivity {
 
     private void resetGame() {
         nbCoups = 0;
+        stopTimer(); // Arrête le timer actuel
+        isFirstCardFlipped = false; // Réinitialise l'état du premier flip de carte
+        timeElapsed = 0; // Réinitialise le temps écoulé
         Collections.shuffle(cards);
         adapter = new MemoryAdapter(this, cards);
         gridView.setAdapter(adapter);
-        finish();
     }
 
     public void endOfGame() {
@@ -157,7 +161,15 @@ public class Memory extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        new AlertDialog.Builder(this)
+                .setTitle("Quitter la partie")
+                .setMessage("Voulez-vous vraiment quitter la partie en cours ?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Memory.super.onBackPressed();
+                    }
+                }).create().show();
     }
 }
 

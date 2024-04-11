@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android-Project</string>
+    <string name="app_name">Car Match</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="play">PLAY</string>
     <string name="reset">Reset</string>
