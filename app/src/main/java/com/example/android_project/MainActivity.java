@@ -24,21 +24,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         binding.level1.setOnClickListener(v -> {
             Intent intent = new Intent(this, Memory.class);
             intent.putExtra("level", 20);
             startActivity(intent);
+            finish();
         });
         binding.level2.setOnClickListener(v -> {
             Intent intent = new Intent(this, Memory.class);
             intent.putExtra("level", 30);
             startActivity(intent);
+            finish();
         });
         binding.level3.setOnClickListener(v -> {
             Intent intent = new Intent(this, Memory.class);
             intent.putExtra("level", 40);
             startActivity(intent);
+            finish();
         });
         setLocale("default");
         binding.switchLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {

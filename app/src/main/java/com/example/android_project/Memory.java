@@ -71,7 +71,7 @@ public class Memory extends AppCompatActivity {
         // Matched
         if ((cards.get(firstCard).equals(cards.get(secondCard)))) { // Check if the cards match
             if (allCardsVisible()) {
-                finish();
+                endOfGame();
             }
         } else {
             // Not matched, hide the cards
@@ -109,17 +109,21 @@ public class Memory extends AppCompatActivity {
     }
 
     private void resetGame() {
+        nbCoups = 0;
         Collections.shuffle(cards);
         adapter = new MemoryAdapter(this, cards);
         gridView.setAdapter(adapter);
+        finish();
     }
 
-    public void finish() {
+    public void endOfGame() {
         stopTimer();
         Intent intent = new Intent(this, Results.class);
         intent.putExtra("SCORE", nbCoups);
         intent.putExtra("TIMER", timeElapsed);
+        new ScoreManager(this).saveHighScore(nbCoups, timeElapsed);
         startActivity(intent);
+        finish();
     }
 
     private void startTimer() {
@@ -149,6 +153,11 @@ public class Memory extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
 

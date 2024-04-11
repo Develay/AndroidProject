@@ -61,11 +61,18 @@ public class Results extends AppCompatActivity {
     public void restartGame() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     // Méthode pour ouvrir le tableau des scores
     public void openLeaderBoard() {
         Intent intent = new Intent(this, LeaderBoard.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        restartGame();
     }
 }

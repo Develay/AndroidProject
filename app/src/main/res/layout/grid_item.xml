@@ -16,6 +16,4 @@
             android:src="@drawable/logo_carmatch" />
 
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

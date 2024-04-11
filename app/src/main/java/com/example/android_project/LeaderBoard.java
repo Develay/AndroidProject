@@ -3,6 +3,7 @@ package com.example.android_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +40,8 @@ public class LeaderBoard extends AppCompatActivity {
                 timeView.setText(String.valueOf(highScoreTimes.get(i)));
             }
         }
+
+        findViewById(R.id.ReplayButton).setOnClickListener(v -> restartGame());
     }
 
     private void restartGame() {
@@ -46,5 +49,6 @@ public class LeaderBoard extends AppCompatActivity {
         // et en démarrant l'activité
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

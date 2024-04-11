@@ -8,225 +8,181 @@
     android:background="@color/light_grey"
     tools:context=".LeaderBoard">
 
+
     <TextView
-        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
+        android:layout_weight="1"
         android:fontFamily="@font/gemstone"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:text="@string/leaderboard"
-        android:textColor="@color/orange"
-        android:textSize="60sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/dark_blue"
+        android:textSize="60sp" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="100dp"
-        android:layout_weight="1"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:weightSum="5">
+            android:weightSum="5"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/position0"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="1:"
+                android:gravity="right"
+                android:text="1st:"
                 android:textColor="@color/orange"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/position1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="2:"
+                android:gravity="right"
+                android:text="2nd:"
                 android:textColor="@color/orange"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/position0" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/position2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="3:"
+                android:gravity="right"
+                android:text="3rd:"
                 android:textColor="@color/orange"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/position1" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/position3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="4:"
+                android:gravity="right"
+                android:text="4th:"
                 android:textColor="@color/orange"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/position2" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/position4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="5:"
+                android:gravity="right"
+                android:text="5th:"
                 android:textColor="@color/orange"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/position3" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
             android:orientation="vertical"
             android:weightSum="5">
 
             <TextView
                 android:id="@+id/score0"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/score1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/score0" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/score2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/score1" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/score3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/score2" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/score4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/score3" />
+                android:textSize="24sp" />
+
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
             android:orientation="vertical"
             android:weightSum="5">
 
             <TextView
                 android:id="@+id/time0"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="left"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/time1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="left"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/score0" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/time2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="left"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/score1" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/time3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="left"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/score2" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/time4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:gravity="left"
                 android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/score3" />
+                android:textSize="24sp" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -234,11 +190,10 @@
         android:id="@+id/ReplayButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/orange"
         android:text="@string/replay"
         android:textColor="@color/white"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
