@@ -3,9 +3,12 @@ package com.example.android_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.example.android_project.databinding.ActivityMainBinding;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         binding.level1.setOnClickListener(v -> {
             Intent intent = new Intent(this, Memory.class);
             intent.putExtra("level", 20);
@@ -36,5 +40,22 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("level", 40);
             startActivity(intent);
         });
+        setLocale("default");
+        binding.switchLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                setLocale("en"); // Change to English
+            } else {
+                setLocale("default"); // Change to default language
+            }
+        });
+    }
+
+    public void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
     }
 }

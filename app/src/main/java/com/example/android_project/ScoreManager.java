@@ -2,6 +2,7 @@ package com.example.android_project;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +14,7 @@ public class ScoreManager extends AppCompatActivity {
     private static final String PREFS_NAME = "com.example.android_project";
     private static final String KEY_HIGH_SCORES = "high_scores";
     private static final String KEY_HIGH_SCORE_TIMES = "high_score_times";
-    private static final int MAX_HIGH_SCORES = 10;
+    private static final int MAX_HIGH_SCORES = 5;
 
     private SharedPreferences preferences;
 
@@ -45,7 +46,9 @@ public class ScoreManager extends AppCompatActivity {
     public List<Integer> getHighScores() {
         List<Integer> highScores = new ArrayList<>();
         for (int i = 0; i < MAX_HIGH_SCORES; i++) {
-            highScores.add(preferences.getInt(KEY_HIGH_SCORES + i, 0));
+            int score = preferences.getInt(KEY_HIGH_SCORES + i, 0);
+            highScores.add(score);
+            Log.d("ScoreManager", "Retrieved score: " + score);
         }
         return highScores;
     }

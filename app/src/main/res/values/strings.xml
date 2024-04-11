@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Android-Project</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="play">PLAY</string>
-    <string name="reset">Reset</string>
-    <string name="validate">Validate</string>
+    <string name="play">JOUER</string>
+    <string name="reset">Reinitialiser</string>
+    <string name="validate">Valider</string>
     <string name="car_match">CAR MATCH</string>
-    <string name="score">score</string>
-    <string name="replay">Replay</string>
-    <string name="leaderboard">Leaderboard</string>
-    <string name="Results">Results</string>
+    <string name="score">Score</string>
+    <string name="replay">Rejouer</string>
+    <string name="leaderboard">Classement</string>
+    <string name="Results">Resultats</string>
 </resources>

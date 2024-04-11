@@ -24,7 +24,7 @@
             android:fontFamily="@font/gemstone"
             android:text="@string/score"
             android:textColor="@color/sky_blue"
-            android:textSize="80sp" />
+            android:textSize="60sp" />
 
         <TextView
             android:id="@+id/score"
