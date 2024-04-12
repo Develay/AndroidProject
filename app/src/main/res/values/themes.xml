@@ -4,6 +4,10 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+    <style name="ListFont" parent="@android:style/Widget.ListView">
+        <item name="android:textColor">#FF0000</item>
+        <item name="android:typeface">sans</item>
+    </style>
 
     <style name="Theme.AndroidProject" parent="Base.Theme.AndroidProject" />
 </resources>

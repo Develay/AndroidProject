@@ -33,6 +33,8 @@ public class Memory extends AppCompatActivity {
     private long timeElapsed;
     private boolean isFirstCardFlipped = false;
 
+    private boolean isBusy = false;
+
     public Memory() {
     }
 
@@ -77,9 +79,11 @@ public class Memory extends AppCompatActivity {
             }
         } else {
             // Not matched, hide the cards
+            isBusy = true;
             gridView.postDelayed(() -> {
                 adapter.hideCard(firstCard);
                 adapter.hideCard(secondCard);
+                isBusy = false;
             }, 500); // Delay to allow the user to see the cards
         }
     }
@@ -90,6 +94,10 @@ public class Memory extends AppCompatActivity {
 
         //Click listener for grid view
         gridView.setOnItemClickListener((parent, view, position, id) -> {
+            if (isBusy) {
+                // Ne faites rien si le jeu est occupé à traiter une paire de cartes
+                return;
+            }
             if (!isFirstCardFlipped) {
                 startTimer();
                 isFirstCardFlipped = true;

@@ -27,7 +27,7 @@ public class ScoreManager {
             highScoreTimes.add(time);
         } else {
             // Replace the highest score (which is the last one after sorting) if the new score is lower
-            if (score > highScores.get(highScores.size() - 1)) {
+            if (score < highScores.get(highScores.size() - 1)) {
                 highScores.remove(highScores.size() - 1);
                 highScoreTimes.remove(highScoreTimes.size() - 1);
                 highScores.add(score);
