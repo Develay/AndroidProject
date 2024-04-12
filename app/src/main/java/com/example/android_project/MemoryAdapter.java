@@ -13,7 +13,7 @@ public class MemoryAdapter extends BaseAdapter {
 
     final private Context context;
     final private ArrayList<Integer> cards;
-    final private ArrayList<Boolean> cardVisibility;
+    final private ArrayList<Integer> cardVisibility;
 
     public MemoryAdapter(Context context, ArrayList<Integer> cards) {
         this.context = context;
@@ -22,7 +22,7 @@ public class MemoryAdapter extends BaseAdapter {
         // Initialize the card visibility list
         cardVisibility = new ArrayList<>();
         for (int i = 0; i < cards.size(); i++) {
-            cardVisibility.add(false);
+            cardVisibility.add(0);
         }
     }
 
@@ -41,7 +41,7 @@ public class MemoryAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        if (cardVisibility.get(position)) {
+        if (cardVisibility.get(position)!=0) {
             holder.imageView.setImageResource(getImageResource(position));
         } else {
             holder.imageView.setImageResource(R.drawable.logo_carmatch); // Set default back image
@@ -57,7 +57,7 @@ public class MemoryAdapter extends BaseAdapter {
 
     // Get the appropriate image resource based on the card value
     private int getImageResource(int cardValue) {
-        if (cardVisibility.get(cardValue)) {
+        if (cardVisibility.get(cardValue)!=0) {
 
             switch (cards.get(cardValue)) {
                 case 0:
@@ -110,14 +110,14 @@ public class MemoryAdapter extends BaseAdapter {
     }
 
     // Method to show a card
-    public void showCard(int position) {
-        cardVisibility.set(position, true);
+    public void showCard(int position,int lock) {
+        cardVisibility.set(position, lock);
         notifyDataSetChanged();
     }
 
     // Method to hide a card
     public void hideCard(int position) {
-        cardVisibility.set(position, false);
+        cardVisibility.set(position, 0);
         notifyDataSetChanged();
     }
 
@@ -137,7 +137,7 @@ public class MemoryAdapter extends BaseAdapter {
         return position;
     }
 
-    public ArrayList<Boolean> getCardVisibility() {
+    public ArrayList<Integer> getCardVisibility() {
         return cardVisibility;
     }
 }

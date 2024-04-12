@@ -70,24 +70,6 @@ public class Memory extends AppCompatActivity {
         }
     }
 
-    private void checkMatch() {
-        nbCoups++;
-        // Matched
-        if ((cards.get(firstCard).equals(cards.get(secondCard)))) { // Check if the cards match
-            if (allCardsVisible()) {
-                endOfGame();
-            }
-        } else {
-            // Not matched, hide the cards
-            isBusy = true;
-            gridView.postDelayed(() -> {
-                adapter.hideCard(firstCard);
-                adapter.hideCard(secondCard);
-                isBusy = false;
-            }, 500); // Delay to allow the user to see the cards
-        }
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -102,13 +84,13 @@ public class Memory extends AppCompatActivity {
                 startTimer();
                 isFirstCardFlipped = true;
             }
-            if (isFirst) {
+            if (isFirst && adapter.getCardVisibility().get(position) == 0){
                 firstCard = position;
-                adapter.showCard(firstCard);
+                adapter.showCard(firstCard,1);
                 isFirst = false;
-            } else if (firstCard != position){ // Check if the same card is clicked
+            } else if (firstCard != position && adapter.getCardVisibility().get(position) == 0){ // Check if the same card is clicked
                 secondCard = position;
-                adapter.showCard(secondCard);
+                adapter.showCard(secondCard,1);
                 checkMatch();
                 isFirst = true;
             }
@@ -117,6 +99,27 @@ public class Memory extends AppCompatActivity {
         //Click listener for reset button
         findViewById(R.id.resetButton).setOnClickListener(v -> resetGame());
     }
+
+    private void checkMatch() {
+        nbCoups++;
+        // Matched
+        if ((cards.get(firstCard).equals(cards.get(secondCard)))) { // Check if the cards match
+            adapter.showCard(firstCard, 2);
+            adapter.showCard(secondCard, 2);
+            if (allCardsVisible()) {
+                endOfGame();
+            }
+        } else {
+            // Not matched, hide the cards
+            isBusy = true;
+            gridView.postDelayed(() -> {
+                adapter.hideCard(firstCard);
+                adapter.hideCard(secondCard);
+                isBusy = false;
+            }, 500); // Delay to allow the user to see the cards
+        }
+    }
+
 
     private void resetGame() {
         nbCoups = 0;
@@ -159,8 +162,8 @@ public class Memory extends AppCompatActivity {
     }
 
     private boolean allCardsVisible() {
-        for (Boolean isVisible : adapter.getCardVisibility()) {
-            if (!isVisible) {
+        for (Integer isVisible : adapter.getCardVisibility()) {
+            if (isVisible==0) {
                 return false;
             }
         }
