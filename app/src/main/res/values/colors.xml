@@ -4,7 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_grey">#FFD3D3D3</color>
     <color name="orange">#FFC05000</color>
-    <color name="sky_blue">#FF61CEEB</color>
-    <color name="dark_blue">#FF00008B</color>
-    <color name="dark_red">#FF8B0000</color>
+    <color name="sky_blue">#017695</color>
+    <color name="dark_blue">#000080</color>
+    <color name="dark_red">#780101</color>
+    <color name="semi_transparent_dark_blue">#5400004F</color>
 </resources>

@@ -126,6 +126,9 @@ public class Memory extends AppCompatActivity {
         stopTimer(); // Arrête le timer actuel
         isFirstCardFlipped = false; // Réinitialise l'état du premier flip de carte
         timeElapsed = 0; // Réinitialise le temps écoulé
+        firstCard = -1;
+        secondCard = -1;
+        isFirst = true;
         Collections.shuffle(cards);
         adapter = new MemoryAdapter(this, cards);
         gridView.setAdapter(adapter);
