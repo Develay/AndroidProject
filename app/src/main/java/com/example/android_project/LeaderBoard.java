@@ -36,10 +36,10 @@ public class LeaderBoard extends AppCompatActivity {
 
         List<String> displayScores = new ArrayList<>();
         for (int i = 0; i < highScores.size(); i++) {
-            displayScores.add(i+1 + "   Score: " + highScores.get(i) + ", Time: " + highScoreTimes.get(i));
+            displayScores.add("Score: " + highScores.get(i) + ", Time: " + highScoreTimes.get(i));
         }
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, displayScores);
+        adapter = new ArrayAdapter<>(this, R.layout.list_item, displayScores);
         listView.setAdapter(adapter);
 
         findViewById(R.id.ReplayButton).setOnClickListener(v -> restartGame());
