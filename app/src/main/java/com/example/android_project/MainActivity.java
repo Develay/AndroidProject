@@ -41,12 +41,11 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("level", 40);
             startActivity(intent);
         });
-        setLocale("default");
         binding.switchLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                setLocale("en"); // Change to English
+                setLocale("fr"); // Change to English
             } else {
-                setLocale("default"); // Change to default language
+                setLocale("en"); // Change to default language
             }
         });
     }

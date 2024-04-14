@@ -5,7 +5,7 @@
 
     <string name="play">JOUER</string>
     <string name="reset">Reinitialiser</string>
-    <string name="EXIT">Quitter l application</string>
+    <string name="EXIT">QUITTER</string>
     <string name="really_quit">Voulez-vous vraiment quitter?</string>
 
     <string name="score">Score</string>
@@ -13,5 +13,6 @@
     <string name="leaderboard">Classement</string>
 
     <string name="Results">Resultats</string>
+    <string name="nickname">Pseudo</string>
 
 </resources>

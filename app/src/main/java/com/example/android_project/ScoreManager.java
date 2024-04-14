@@ -23,8 +23,12 @@ public class ScoreManager {
         List<Integer> highScores = getHighScores();
         //List<Long> highScoreTimes = getHighScoreTimes();
 
+        if (highScores.size() < MAX_HIGH_SCORES) {
+            highScores.add(score);
+            //highScoreTimes.add(time);
+        }
         // Replace the highest score (which is the last one after sorting) if the new score is lower
-        if (score < highScores.get(highScores.size() - 1)) {
+        else if (score < highScores.get(highScores.size() - 1)) {
             highScores.remove(highScores.size() - 1);
             //highScoreTimes.remove(highScoreTimes.size() - 1);
             highScores.add(score);
