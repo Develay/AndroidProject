@@ -1,12 +1,16 @@
 <resources>
     <string name="app_name">Car Match</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="car_match">CAR MATCH</string>
+
     <string name="play">PLAY</string>
     <string name="reset">Reset</string>
-    <string name="validate">Validate</string>
-    <string name="car_match">CAR MATCH</string>
+    <string name="EXIT">EXIT</string>
+    <string name="really_quit">Do you really want to quit?</string>
+
     <string name="score">Score</string>
     <string name="replay">Replay</string>
     <string name="leaderboard">Leaderboard</string>
+
     <string name="Results">Results</string>
 </resources>

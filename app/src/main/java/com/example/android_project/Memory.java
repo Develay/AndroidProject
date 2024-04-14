@@ -139,7 +139,6 @@ public class Memory extends AppCompatActivity {
         Intent intent = new Intent(this, Results.class);
         intent.putExtra("SCORE", nbCoups);
         intent.putExtra("TIMER", timeElapsed);
-        new ScoreManager(this).saveHighScore(nbCoups, timeElapsed);
         startActivity(intent);
         finish();
     }
@@ -176,8 +175,8 @@ public class Memory extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Quitter la partie")
-                .setMessage("Voulez-vous vraiment quitter la partie en cours ?")
+                .setTitle(getString(R.string.EXIT))
+                .setMessage(getString(R.string.really_quit))
                 .setNegativeButton(android.R.string.no, null)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {

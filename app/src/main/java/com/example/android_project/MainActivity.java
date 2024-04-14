@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Quitter l'application")
-                .setMessage("Voulez-vous vraiment quitter l'application ?")
+                .setTitle(getString(R.string.EXIT))
+                .setMessage(getString(R.string.really_quit))
                 .setNegativeButton(android.R.string.no, null)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {

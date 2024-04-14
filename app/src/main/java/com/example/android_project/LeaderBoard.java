@@ -32,11 +32,12 @@ public class LeaderBoard extends AppCompatActivity {
         listView = findViewById(R.id.listView);
 
         List<Integer> highScores = scoreManager.getHighScores();
-        List<Long> highScoreTimes = scoreManager.getHighScoreTimes();
+        //List<Long> highScoreTimes = scoreManager.getHighScoreTimes();
 
         List<String> displayScores = new ArrayList<>();
         for (int i = 0; i < highScores.size(); i++) {
-            displayScores.add("Score: " + highScores.get(i) + ", Time: " + highScoreTimes.get(i));
+            displayScores.add("Score: " + highScores.get(i));
+                    //+ ", Time: " + highScoreTimes.get(i));
         }
 
         adapter = new ArrayAdapter<>(this, R.layout.list_item, displayScores);

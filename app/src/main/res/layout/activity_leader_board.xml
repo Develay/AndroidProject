@@ -41,7 +41,7 @@
                     android:id="@+id/Position0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="18dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/gemstone"
                     android:text="1st:"
@@ -52,7 +52,7 @@
                     android:id="@+id/Position1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="18dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/gemstone"
                     android:text="2nd:"
@@ -63,7 +63,7 @@
                     android:id="@+id/Position2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="18dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/gemstone"
                     android:text="3rd:"
@@ -74,7 +74,7 @@
                     android:id="@+id/Position3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="18dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/gemstone"
                     android:text="4th:"
@@ -85,10 +85,65 @@
                     android:id="@+id/Position4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="18dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/gemstone"
                     android:text="5th:"
+                    android:textColor="@color/orange"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/Position5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gemstone"
+                    android:text="6th:"
+                    android:textColor="@color/orange"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/Position6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gemstone"
+                    android:text="7th:"
+                    android:textColor="@color/orange"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/Position7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gemstone"
+                    android:text="8th:"
+                    android:textColor="@color/orange"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/Position8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gemstone"
+                    android:text="9th:"
+                    android:textColor="@color/orange"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/Position9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gemstone"
+                    android:text="10th:"
                     android:textColor="@color/orange"
                     android:textSize="30sp" />
 
