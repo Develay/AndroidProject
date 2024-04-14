@@ -2,6 +2,7 @@ package com.example.android_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +15,13 @@ public class Results extends AppCompatActivity {
     private String nbCoups;
 
     private ScoreManager scoreManager;
-
+    private Resultat resultat;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
+        scoreManager = new ScoreManager(this);
 
         // Récupérer les données envoyées via l'intent
         Bundle extras = getIntent().getExtras();
@@ -45,8 +48,25 @@ public class Results extends AppCompatActivity {
                 timeTextView.setText("Temps écoulé : " + minutes + ":" + String.format("%02d", seconds) + ":" + milliseconds);
 
             }
-            scoreManager = new ScoreManager(this);
-            scoreManager.saveHighScore(nbCoups, timeElapsed);
+
+            findViewById(R.id.saveButton).setOnClickListener(v -> {
+                // Récupérer le pseudo de l'EditText
+                EditText nickname = findViewById(R.id.nickname);
+                String pseudo = nickname.getText().toString();
+
+                // Créer une nouvelle instance de Resultat
+                resultat = new Resultat(nbCoups, timeElapsed, pseudo);
+
+                // Enregistrer le score
+                scoreManager.saveHighScore(resultat);
+
+                // Désactiver le bouton après le premier appui
+                findViewById(R.id.saveButton).setEnabled(false);
+                findViewById(R.id.saveButton).setAlpha(0.5f);
+                nickname.setEnabled(false);
+                nickname.setAlpha(0.5f);
+            });
+
         }
     }
 
@@ -68,6 +88,7 @@ public class Results extends AppCompatActivity {
     public void openLeaderBoard() {
         Intent intent = new Intent(this, LeaderBoard.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

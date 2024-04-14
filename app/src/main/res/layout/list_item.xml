@@ -11,4 +11,4 @@
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:textColor="@color/dark_blue"
-    android:textSize="20dp"/>
+    android:textSize="10dp"/>

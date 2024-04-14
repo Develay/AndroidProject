@@ -7,9 +7,6 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.android_project.MainActivity;
-import com.example.android_project.R;
-import com.example.android_project.ScoreManager;
 import com.example.android_project.databinding.ActivityLeaderBoardBinding;
 
 import java.util.ArrayList;
@@ -30,14 +27,11 @@ public class LeaderBoard extends AppCompatActivity {
 
         scoreManager = new ScoreManager(this);
         listView = findViewById(R.id.listView);
-
-        List<Integer> highScores = scoreManager.getHighScores();
-        //List<Long> highScoreTimes = scoreManager.getHighScoreTimes();
+        List<Resultat> highScores = scoreManager.getHighScores();
 
         List<String> displayScores = new ArrayList<>();
-        for (int i = 0; i < highScores.size(); i++) {
-            displayScores.add("Score: " + highScores.get(i));
-                    //+ ", Time: " + highScoreTimes.get(i));
+        for (Resultat resultat : highScores) {
+            displayScores.add(resultat.toString());
         }
 
         adapter = new ArrayAdapter<>(this, R.layout.list_item, displayScores);

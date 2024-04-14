@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:weightSum="4">
+        android:weightSum="4"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,20 +50,39 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="80dp"
-        android:text="@string/nickname"
-        android:textColor="@color/white"
-        android:background="@color/sky_blue"/>
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <EditText
+            android:id="@+id/nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/sky_blue"
+            android:text="@string/nickname"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/sky_blue"
+            android:text="@string/validate"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
         android:layout_marginBottom="20dp"
+        android:gravity="bottom"
         android:orientation="horizontal"
         android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="parent">
