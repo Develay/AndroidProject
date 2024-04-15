@@ -20,6 +20,9 @@ public class Resultat {
     }
 
     public String toString() {
+        if(getTime() == 3600000 && getScore() == 200) {
+            return " ";
+        }
         long minutes = (getTime() / 1000) / 60;
         long seconds = (getTime() / 1000) % 60;
         long milliseconds = getTime() % 1000;
