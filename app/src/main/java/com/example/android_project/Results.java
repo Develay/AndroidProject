@@ -12,10 +12,14 @@ import com.example.android_project.databinding.ActivityResultsBinding;
 public class Results extends AppCompatActivity {
 
     private ActivityResultsBinding binding;
-    private String nbCoups;
+    private int nbCoups;
+    private long timeElapsed;
+    private String pseudo = "Unknown";
 
     private ScoreManager scoreManager;
     private Resultat resultat;
+
+    private int currentLevel = 0;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +31,18 @@ public class Results extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             // Extraire la valeur de "SCORE" de l'intent
-            int nbCoups = extras.getInt("SCORE", 0); // La valeur par défaut est 0 si "SCORE" n'est pas trouvé
+            nbCoups = extras.getInt("SCORE", 0); // La valeur par défaut est 0 si "SCORE" n'est pas trouvé
 
             // Extraire la valeur de "TIMER" de l'intent
-            long timeElapsed = extras.getLong("TIMER", 0); // La valeur par défaut est 0 si "TIMER" n'est pas trouvé
+            timeElapsed = extras.getLong("TIMER", 0); // La valeur par défaut est 0 si "TIMER" n'est pas trouvé
 
             // Convertir le temps écoulé en minutes, secondes et millisecondes
             long minutes = (timeElapsed / 1000) / 60;
             long seconds = (timeElapsed / 1000) % 60;
             long milliseconds = timeElapsed % 1000;
+
+            // Extraire la valeur de "level" de l'intent
+            int currentLevel = extras.getInt("level", 20); // La valeur par défaut est 20 si "level" n'est pas trouvé
 
             // Afficher les valeurs de nbCoups et timeElapsed dans un TextView ou un autre composant d'interface utilisateur
             TextView scoreTextView = findViewById(R.id.score);
@@ -58,7 +65,7 @@ public class Results extends AppCompatActivity {
                 resultat = new Resultat(nbCoups, timeElapsed, pseudo);
 
                 // Enregistrer le score
-                scoreManager.saveHighScore(resultat);
+                scoreManager.saveHighScore(resultat, currentLevel);
 
                 // Désactiver le bouton après le premier appui
                 findViewById(R.id.saveButton).setEnabled(false);
@@ -87,6 +94,13 @@ public class Results extends AppCompatActivity {
     // Méthode pour ouvrir le tableau des scores
     public void openLeaderBoard() {
         Intent intent = new Intent(this, LeaderBoard.class);
+        //intent.putExtra("level", currentLevel);
+
+        // Créer une nouvelle instance de Resultat
+        resultat = new Resultat(nbCoups, timeElapsed, pseudo);
+
+        // Enregistrer le score
+        scoreManager.saveHighScore(resultat, currentLevel);
         startActivity(intent);
         finish();
     }

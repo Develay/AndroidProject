@@ -26,7 +26,7 @@ public class Resultat {
         long minutes = (getTime() / 1000) / 60;
         long seconds = (getTime() / 1000) % 60;
         long milliseconds = getTime() % 1000;
-        return getPseudo() + " | Score: " + getScore() + ", Time: " + minutes + ":" + String.format("%02d", seconds) + ":" + milliseconds;
+        return getPseudo() + " \n| Score: " + getScore() + ", Time: " + minutes + ":" + String.format("%02d", seconds) + ":" + milliseconds;
     }
 
     public String getPseudo() {

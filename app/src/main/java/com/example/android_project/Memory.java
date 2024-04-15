@@ -25,7 +25,7 @@ public class Memory extends AppCompatActivity {
 
     private int firstCard, secondCard;
     private boolean isFirst = true;
-    private  float nbCards = 0;
+    private  int nbCards = 0;
 
     private int nbCoups = 0;
 
@@ -139,6 +139,7 @@ public class Memory extends AppCompatActivity {
         Intent intent = new Intent(this, Results.class);
         intent.putExtra("SCORE", nbCoups);
         intent.putExtra("TIMER", timeElapsed);
+        intent.putExtra("level", nbCards);
         startActivity(intent);
         finish();
     }
