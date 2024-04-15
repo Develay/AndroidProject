@@ -18,9 +18,10 @@ public class Results extends AppCompatActivity {
 
     private ScoreManager scoreManager;
     private Resultat resultat;
+    private boolean scored = false;
 
     private int currentLevel = 0;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +68,7 @@ public class Results extends AppCompatActivity {
                 // Enregistrer le score
                 scoreManager.saveHighScore(resultat, currentLevel);
 
+                scored = true;
                 // Désactiver le bouton après le premier appui
                 findViewById(R.id.saveButton).setEnabled(false);
                 findViewById(R.id.saveButton).setAlpha(0.5f);
@@ -96,11 +98,12 @@ public class Results extends AppCompatActivity {
         Intent intent = new Intent(this, LeaderBoard.class);
         //intent.putExtra("level", currentLevel);
 
-        // Créer une nouvelle instance de Resultat
-        resultat = new Resultat(nbCoups, timeElapsed, pseudo);
-
-        // Enregistrer le score
-        scoreManager.saveHighScore(resultat, currentLevel);
+        if (!scored) {
+            // Créer une nouvelle instance de Resultat
+            resultat = new Resultat(nbCoups, timeElapsed, pseudo);
+            // Enregistrer le score
+            scoreManager.saveHighScore(resultat, currentLevel);
+        }
         startActivity(intent);
         finish();
     }

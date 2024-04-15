@@ -2,9 +2,12 @@ package com.example.android_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -55,6 +58,13 @@ public class LeaderBoard extends AppCompatActivity {
         ArrayAdapter<String> positionsAdapter = new ArrayAdapter<>(this, R.layout.position_list_item, displayPositions);
         positionsListView.setAdapter(positionsAdapter);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -81,6 +91,23 @@ public class LeaderBoard extends AppCompatActivity {
             }
         });
 
+        Spinner levelSpinner = findViewById(R.id.levelSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.level_array, R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
+        levelSpinner.setAdapter(adapter);
+        levelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                currentLevel = position + 1; // Les positions commencent à 1
+                updateLeaderboard();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Pas besoin de faire quoi que ce soit ici
+            }
+        });
+
         findViewById(R.id.ReplayButton).setOnClickListener(v -> restartGame());
     }
 
@@ -90,5 +117,22 @@ public class LeaderBoard extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void updateLeaderboard() {
+        List<Resultat> highScores = scoreManager.getHighScores(currentLevel);
+        List<String> displayScores = new ArrayList<>();
+        List<String> displayPositions = new ArrayList<>();
+        for (int i = 0; i < highScores.size(); i++) {
+            displayScores.add(highScores.get(i).toString());
+            displayPositions.add(String.valueOf(i + 1 + " :")); // Les positions commencent à 1
+        }
+
+        adapter.clear();
+        adapter.addAll(displayScores);
+        adapter.notifyDataSetChanged();
+
+        ArrayAdapter<String> positionsAdapter = new ArrayAdapter<>(this, R.layout.position_list_item, displayPositions);
+        positionsListView.setAdapter(positionsAdapter);
     }
 }

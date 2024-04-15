@@ -16,4 +16,11 @@
     <string name="nickname">Pseudo</string>
     <string name="validate">Valider</string>
 
+    <string-array name="level_array">
+        <item>Level 1</item>
+        <item>Level 2</item>
+        <item>Level 3</item>
+        <!-- Ajoutez plus de niveaux si nécessaire -->
+    </string-array>
+
 </resources>

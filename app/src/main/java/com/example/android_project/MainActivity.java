@@ -41,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("level", 40);
             startActivity(intent);
         });
+        binding.Leaderboard.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LeaderBoard.class);
+            startActivity(intent);
+        });
+
         binding.switchLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 setLocale("fr"); // Change to English

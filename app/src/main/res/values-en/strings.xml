@@ -15,4 +15,12 @@
     <string name="Results">Results</string>
     <string name="nickname">Nickname</string>
     <string name="validate">Validate</string>
+
+    <string-array name="level_array">
+        <item>Level 1</item>
+        <item>Level 2</item>
+        <item>Level 3</item>
+        <!-- Ajoutez plus de niveaux si nécessaire -->
+    </string-array>
+
 </resources>
