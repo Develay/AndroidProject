@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("level", 40);
             startActivity(intent);
         });
-        binding.Leaderboard.setOnClickListener(v -> {
+        binding.leaderboard.setOnClickListener(v -> {
             Intent intent = new Intent(this, LeaderBoard.class);
             startActivity(intent);
         });

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -12,17 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:weightSum="2">
 
         <ImageView
             android:id="@+id/Logo"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/logo_carmatch" />
+            app:srcCompat="@drawable/logo_carmatch"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/title"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/gemstone"
-            android:text="@string/car_match"
+            android:text="@string/app_name"
             android:textColor="@color/orange"
             android:textSize="60sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -41,20 +41,20 @@
             android:id="@+id/Logo1"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/logo_carmatch" />
+            app:srcCompat="@drawable/logo_carmatch"
+            android:layout_weight="1"/>
     </LinearLayout>
 
-
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/picture1"
-        app:layout_constraintBottom_toTopOf="@id/Leaderboard"
+        android:id="@+id/Logo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo_carmatch"
+        app:layout_constraintTop_toBottomOf="@id/logoLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoLayout"
-        android:layout_marginBottom="40dp"/>
+        app:layout_constraintBottom_toTopOf="@id/buttonLayout"/>
+
 
     <LinearLayout
         android:id="@+id/buttonLayout"
@@ -62,59 +62,57 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="3"
-        app:layout_constraintBottom_toTopOf="@id/Leaderboard"
+        app:layout_constraintBottom_toTopOf="@id/leaderboard"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoLayout"
-        android:layout_marginBottom="40dp">
+        app:layout_constraintTop_toBottomOf="@id/Logo2">
 
         <Button
             android:id="@+id/level1"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:text="5*4"
-            android:textColor="@color/black" />
+            android:backgroundTint="@color/light_grey"
+            android:text="Level 1"
+            android:textStyle="bold"
+            android:textColor="@color/buttonText" />
 
         <Button
             android:id="@+id/level2"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:text="5*6"
-            android:textColor="@color/black" />
+            android:backgroundTint="@color/light_grey"
+            android:text="Level 2"
+            android:textStyle="bold"
+            android:textColor="@color/buttonText" />
 
         <Button
             android:id="@+id/level3"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:text="5*8"
-            android:textColor="@color/black" />
-
+            android:backgroundTint="@color/light_grey"
+            android:text="Level 3"
+            android:textStyle="bold"
+            android:textColor="@color/buttonText" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/Leaderboard"
+        android:id="@+id/leaderboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/dark_blue"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:text="@string/leaderboard"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:textColor="@color/buttonText"
+        android:backgroundTint="@color/spinner"
+        app:layout_constraintBottom_toTopOf="@id/flagLayout"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
 
     <LinearLayout
         android:id="@+id/flagLayout"

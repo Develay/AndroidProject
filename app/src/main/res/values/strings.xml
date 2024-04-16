@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Car Match</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="car_match">CAR MATCH</string>
 
     <string name="play">JOUER</string>
     <string name="reset">Reinitialiser</string>

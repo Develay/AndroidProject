@@ -3,7 +3,7 @@
     android:id="@android:id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/semi_transparent_dark_blue"
-    android:textColor="@color/white"
+    android:background="@color/spinner"
+    android:textColor="@color/buttonText"
     android:textSize="15sp"
     android:padding="5dp"/>
