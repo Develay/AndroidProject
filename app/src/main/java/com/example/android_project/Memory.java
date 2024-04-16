@@ -4,7 +4,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.util.Log;
+import android.widget.Chronometer;
 import android.widget.GridView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -35,6 +37,8 @@ public class Memory extends AppCompatActivity {
 
     private boolean isBusy = false;
 
+    private Chronometer chronometer;
+
     public Memory() {
     }
 
@@ -44,6 +48,7 @@ public class Memory extends AppCompatActivity {
         setContentView(R.layout.activity_memory);
 
         gridView = findViewById(R.id.gridView);
+        chronometer = findViewById(R.id.chronometer);
 
         // Récupérer les données envoyées via l'intent
         Bundle extras = getIntent().getExtras();
@@ -81,7 +86,8 @@ public class Memory extends AppCompatActivity {
                 return;
             }
             if (!isFirstCardFlipped) {
-                startTimer();
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                chronometer.start();
                 isFirstCardFlipped = true;
             }
             if (isFirst && adapter.getCardVisibility().get(position) == 0){
@@ -123,7 +129,8 @@ public class Memory extends AppCompatActivity {
 
     private void resetGame() {
         nbCoups = 0;
-        stopTimer(); // Arrête le timer actuel
+        chronometer.stop(); // Arrête le chronomètre
+        chronometer.setBase(SystemClock.elapsedRealtime());
         isFirstCardFlipped = false; // Réinitialise l'état du premier flip de carte
         timeElapsed = 0; // Réinitialise le temps écoulé
         firstCard = -1;
@@ -135,33 +142,14 @@ public class Memory extends AppCompatActivity {
     }
 
     public void endOfGame() {
-        stopTimer();
+        chronometer.stop();
+        timeElapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
         Intent intent = new Intent(this, Results.class);
         intent.putExtra("SCORE", nbCoups);
         intent.putExtra("TIMER", timeElapsed);
         intent.putExtra("level", nbCards);
         startActivity(intent);
         finish();
-    }
-
-    private void startTimer() {
-        timer = new CountDownTimer(3600000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                timeElapsed = 3600000 - millisUntilFinished;
-            }
-
-            @Override
-            public void onFinish() {
-                finish();
-            }
-        }.start();
-    }
-
-    private void stopTimer() {
-        if (timer != null) {
-            timer.cancel();
-        }
     }
 
     private boolean allCardsVisible() {
