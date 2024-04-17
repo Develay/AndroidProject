@@ -31,8 +31,6 @@ public class Results extends AppCompatActivity {
         setContentView(R.layout.activity_results);
         scoreManager = new ScoreManager(this);
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.restart);
-
         // Récupérer les données envoyées via l'intent
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -87,10 +85,14 @@ public class Results extends AppCompatActivity {
             nickname.setEnabled(false);
             nickname.setAlpha(0.5f);
         });
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.nyoom);
+        mediaPlayer.start();
     }
 
     // Méthode pour redémarrer le jeu
     public void restartGame() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.restart);
         mediaPlayer.start();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -99,9 +101,10 @@ public class Results extends AppCompatActivity {
 
     // Méthode pour ouvrir le tableau des scores
     public void openLeaderBoard() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.pit_stop);
+        mediaPlayer.start();
         Intent intent = new Intent(this, LeaderBoard.class);
         //intent.putExtra("level", currentLevel);
-
         if (!scored) {
             // Créer une nouvelle instance de Resultat
             resultat = new Resultat(nbCoups, timeElapsed, pseudo);
@@ -109,7 +112,6 @@ public class Results extends AppCompatActivity {
             scoreManager.saveHighScore(resultat, currentLevel);
         }
         startActivity(intent);
-        finish();
     }
 
     @Override

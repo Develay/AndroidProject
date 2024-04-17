@@ -127,7 +127,7 @@ public class LeaderBoard extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        restartGame();
+        super.onBackPressed();
     }
 
     @Override
