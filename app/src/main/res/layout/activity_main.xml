@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             app:srcCompat="@drawable/logo_carmatch"
+            android:clickable="true"
             android:layout_weight="1"/>
 
         <TextView
@@ -42,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             app:srcCompat="@drawable/logo_carmatch"
+            android:clickable="true"
             android:layout_weight="1"/>
     </LinearLayout>
 

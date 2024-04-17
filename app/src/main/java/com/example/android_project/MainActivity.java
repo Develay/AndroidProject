@@ -70,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.start();
             }
         });
+        binding.Logo.setOnClickListener(v -> {
+            binding.Logo1.setOnClickListener(v1 -> {
+                mediaPlayer = MediaPlayer.create(this, R.raw.easter_egg);
+                mediaPlayer.start();
+                binding.Logo2.setImageResource(R.drawable.easter_egg);
+            });
+        });
     }
 
     // Méthode qui change la langue de l'application
