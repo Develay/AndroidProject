@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/buttonText"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -109,6 +109,7 @@
         android:layout_marginRight="50dp"
         android:text="@string/leaderboard"
         android:textColor="@color/buttonText"
+        android:textStyle="bold"
         android:backgroundTint="@color/spinner"
         app:layout_constraintBottom_toTopOf="@id/flagLayout"
         app:layout_constraintLeft_toLeftOf="parent"/>

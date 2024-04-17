@@ -20,7 +20,7 @@ public class Resultat {
     }
 
     public String toString() {
-        if(getTime() == 3600000 && getScore() == 200) {
+        if(getTime() == Long.MAX_VALUE && getScore() == Integer.MAX_VALUE) {
             return " ";
         }
         long minutes = (getTime() / 1000) / 60;

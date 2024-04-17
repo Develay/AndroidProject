@@ -46,6 +46,7 @@
         android:backgroundTint="@color/orange"
         android:text="@string/reset"
         android:textColor="@color/buttonText"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

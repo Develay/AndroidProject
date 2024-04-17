@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LeaderBoard.class);
             startActivity(intent);
         });
-
         binding.switchLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 setLocale("fr"); // Change to English
@@ -53,6 +52,29 @@ public class MainActivity extends AppCompatActivity {
                 setLocale("en"); // Change to default language
             }
         });
+
+
+                // Configure the Spinner
+        /*Spinner levelSpinner = findViewById(R.id.flagSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.level_array, R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
+        levelSpinner.setAdapter(adapter);
+        levelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedLanguage = (String) parent.getItemAtPosition(position);
+                if (selectedLanguage.equals("English")) {
+                    setLocale("en");
+                } else if (selectedLanguage.equals("Français")) {
+                    setLocale("fr");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }*/
+
     }
 
     public void setLocale(String lang) {
@@ -60,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config,
-                getBaseContext().getResources().getDisplayMetrics());
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        recreate();
     }
 
     @Override

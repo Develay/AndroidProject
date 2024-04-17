@@ -81,7 +81,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/sky_blue"
             android:text="@string/validate"
-            android:textColor="@color/buttonText" />
+            android:textColor="@color/buttonText"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
@@ -102,7 +103,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/orange"
             android:text="@string/replay"
-            android:textColor="@color/buttonText" />
+            android:textColor="@color/buttonText"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/leaderboardButton"
@@ -112,7 +114,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/dark_blue"
             android:text="@string/leaderboard"
-            android:textColor="@color/buttonText" />
+            android:textColor="@color/buttonText"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 
