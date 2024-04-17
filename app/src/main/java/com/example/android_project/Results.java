@@ -1,6 +1,7 @@
 package com.example.android_project;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,11 +23,15 @@ public class Results extends AppCompatActivity {
 
     private int currentLevel = 0;
 
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         scoreManager = new ScoreManager(this);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.restart);
 
         // Récupérer les données envoyées via l'intent
         Bundle extras = getIntent().getExtras();
@@ -56,26 +61,6 @@ public class Results extends AppCompatActivity {
                 timeTextView.setText("Temps écoulé : " + minutes + ":" + String.format("%02d", seconds) + ":" + milliseconds);
 
             }
-
-            findViewById(R.id.saveButton).setOnClickListener(v -> {
-                // Récupérer le pseudo de l'EditText
-                EditText nickname = findViewById(R.id.nickname);
-                String pseudo = nickname.getText().toString();
-
-                // Créer une nouvelle instance de Resultat
-                resultat = new Resultat(nbCoups, timeElapsed, pseudo);
-
-                // Enregistrer le score
-                scoreManager.saveHighScore(resultat, currentLevel);
-
-                scored = true;
-                // Désactiver le bouton après le premier appui
-                findViewById(R.id.saveButton).setEnabled(false);
-                findViewById(R.id.saveButton).setAlpha(0.5f);
-                nickname.setEnabled(false);
-                nickname.setAlpha(0.5f);
-            });
-
         }
     }
 
@@ -84,10 +69,29 @@ public class Results extends AppCompatActivity {
         super.onResume();
         findViewById(R.id.replayButton).setOnClickListener(v -> restartGame());
         findViewById(R.id.leaderboardButton).setOnClickListener(v -> openLeaderBoard());
+        findViewById(R.id.saveButton).setOnClickListener(v -> {
+            // Récupérer le pseudo de l'EditText
+            EditText nickname = findViewById(R.id.nickname);
+            String pseudo = nickname.getText().toString();
+
+            // Créer une nouvelle instance de Resultat
+            resultat = new Resultat(nbCoups, timeElapsed, pseudo);
+
+            // Enregistrer le score
+            scoreManager.saveHighScore(resultat, currentLevel);
+
+            scored = true;
+            // Désactiver le bouton après le premier appui
+            findViewById(R.id.saveButton).setEnabled(false);
+            findViewById(R.id.saveButton).setAlpha(0.5f);
+            nickname.setEnabled(false);
+            nickname.setAlpha(0.5f);
+        });
     }
 
     // Méthode pour redémarrer le jeu
     public void restartGame() {
+        mediaPlayer.start();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
@@ -111,5 +115,14 @@ public class Results extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         restartGame();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }

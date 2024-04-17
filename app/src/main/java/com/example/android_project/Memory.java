@@ -2,6 +2,7 @@ package com.example.android_project;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
@@ -39,6 +40,8 @@ public class Memory extends AppCompatActivity {
 
     private Chronometer chronometer;
 
+    private MediaPlayer mediaPlayer;
+
     public Memory() {
     }
 
@@ -46,6 +49,8 @@ public class Memory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.pair_found);
 
         gridView = findViewById(R.id.gridView);
         chronometer = findViewById(R.id.chronometer);
@@ -112,6 +117,7 @@ public class Memory extends AppCompatActivity {
         if ((cards.get(firstCard).equals(cards.get(secondCard)))) { // Check if the cards match
             adapter.showCard(firstCard, 2);
             adapter.showCard(secondCard, 2);
+            mediaPlayer.start();
             if (allCardsVisible()) {
                 endOfGame();
             }
@@ -172,6 +178,15 @@ public class Memory extends AppCompatActivity {
                         Memory.super.onBackPressed();
                     }
                 }).create().show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
 

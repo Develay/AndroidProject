@@ -1,6 +1,7 @@
 package com.example.android_project;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
@@ -26,11 +27,15 @@ public class LeaderBoard extends AppCompatActivity {
 
     private int currentLevel = 0;
 
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLeaderBoardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.restart);
 
         // Récupérer les données envoyées via l'intent
         Bundle extras = getIntent().getExtras();
@@ -91,29 +96,13 @@ public class LeaderBoard extends AppCompatActivity {
             }
         });
 
-        Spinner levelSpinner = findViewById(R.id.levelSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.level_array, R.layout.spinner_item);
-        adapter.setDropDownViewResource(R.layout.spinner_item);
-        levelSpinner.setAdapter(adapter);
-        levelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                currentLevel = position + 1; // Les positions commencent à 1
-                updateLeaderboard();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Pas besoin de faire quoi que ce soit ici
-            }
-        });
-
         findViewById(R.id.ReplayButton).setOnClickListener(v -> restartGame());
     }
 
     private void restartGame() {
         // Redémarrez le jeu en créant une nouvelle instance de l'activité Memory
         // et en démarrant l'activité
+        mediaPlayer.start();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
@@ -134,5 +123,19 @@ public class LeaderBoard extends AppCompatActivity {
 
         ArrayAdapter<String> positionsAdapter = new ArrayAdapter<>(this, R.layout.position_list_item, displayPositions);
         positionsListView.setAdapter(positionsAdapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        restartGame();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
