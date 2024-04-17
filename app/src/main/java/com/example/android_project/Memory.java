@@ -13,13 +13,10 @@ import android.widget.GridView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.android_project.databinding.ActivityMemoryBinding;
-
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
-
+// Activité qui gère le jeu
 public class Memory extends AppCompatActivity {
 
     private GridView gridView;
@@ -45,6 +42,7 @@ public class Memory extends AppCompatActivity {
     public Memory() {
     }
 
+    // Méthode qui gère la création de l'activité
     @Override 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,11 +75,12 @@ public class Memory extends AppCompatActivity {
         }
     }
 
+    // Méthode qui gère la reprise de l'activité
     @Override
     protected void onResume() {
         super.onResume();
 
-        //Click listener for grid view
+        //Click listener pour le gridView
         gridView.setOnItemClickListener((parent, view, position, id) -> {
             if (isBusy) {
                 // Ne faites rien si le jeu est occupé à traiter une paire de cartes
@@ -104,10 +103,11 @@ public class Memory extends AppCompatActivity {
             }
         });
 
-        //Click listener for reset button
+        //Click listener pour le bouton de réinitialisation
         findViewById(R.id.resetButton).setOnClickListener(v -> resetGame());
     }
 
+    // Méthode qui gère le Match des cartes
     private void checkMatch() {
         nbCoups++;
         // Matched
@@ -120,7 +120,7 @@ public class Memory extends AppCompatActivity {
                 endOfGame();
             }
         } else {
-            // Not matched, hide the cards
+            // Pas une paire, retournez les cartes
             isBusy = true;
             mediaPlayer = MediaPlayer.create(this, R.raw.not_matched);
             mediaPlayer.start();
@@ -133,6 +133,7 @@ public class Memory extends AppCompatActivity {
     }
 
 
+    // Méthode qui réinitialise le jeu
     private void resetGame() {
         nbCoups = 0;
         chronometer.stop(); // Arrête le chronomètre
@@ -147,6 +148,7 @@ public class Memory extends AppCompatActivity {
         gridView.setAdapter(adapter);
     }
 
+    // Méthode qui gère la fin du jeu
     public void endOfGame() {
         chronometer.stop();
         timeElapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
@@ -158,6 +160,7 @@ public class Memory extends AppCompatActivity {
         finish();
     }
 
+    // Méthode qui vérifie si toutes les cartes sont visibles
     private boolean allCardsVisible() {
         for (Integer isVisible : adapter.getCardVisibility()) {
             if (isVisible==0) {
@@ -167,6 +170,7 @@ public class Memory extends AppCompatActivity {
         return true;
     }
 
+    // Méthode qui gère le bouton retour
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
@@ -180,6 +184,7 @@ public class Memory extends AppCompatActivity {
                 }).create().show();
     }
 
+    // Méthode qui libère les ressources MediaPlayer
     @Override
     protected void onDestroy() {
         super.onDestroy();

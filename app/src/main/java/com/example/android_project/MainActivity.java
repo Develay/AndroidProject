@@ -13,12 +13,14 @@ import com.example.android_project.databinding.ActivityMainBinding;
 
 import java.util.Locale;
 
+// Activité principale
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
     private MediaPlayer mediaPlayer;
 
+    // Méthode qui gère la création de l'activité
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
     }
 
+    // Méthode qui gère l'appui sur les boutons'
     @Override
     protected void onResume() {
         super.onResume();
@@ -69,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Méthode qui change la langue de l'application
     public void setLocale(String lang) {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
@@ -78,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         recreate();
     }
 
+    // Méthode qui gère le bouton retour
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)

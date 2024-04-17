@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+// Classe qui gère l'adaptation des cartes
 public class MemoryAdapter extends BaseAdapter {
 
     final private Context context;
@@ -26,7 +27,7 @@ public class MemoryAdapter extends BaseAdapter {
         }
     }
 
-    // Method to get the view of the grid item
+    // Méthode qui retourne la vue
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -50,12 +51,12 @@ public class MemoryAdapter extends BaseAdapter {
         return view;
     }
 
-    // ViewHolder class to hold the ImageView
+    // Méthode qui retourne le ViewHolder
     static class ViewHolder {
         ImageView imageView;
     }
 
-    // Get the appropriate image resource based on the card value
+    // Méthode qui retourne l'image associée à la carte
     private int getImageResource(int cardValue) {
         if (cardVisibility.get(cardValue)!=0) {
 
@@ -109,13 +110,13 @@ public class MemoryAdapter extends BaseAdapter {
         }
     }
 
-    // Method to show a card
+    // Méthode qui retourne la visibilité de la carte
     public void showCard(int position,int lock) {
         cardVisibility.set(position, lock);
         notifyDataSetChanged();
     }
 
-    // Method to hide a card
+    // Méthode qui cache la carte
     public void hideCard(int position) {
         cardVisibility.set(position, 0);
         notifyDataSetChanged();
@@ -137,6 +138,7 @@ public class MemoryAdapter extends BaseAdapter {
         return position;
     }
 
+    // Méthode qui retourne l'état de visibilié des cartes
     public ArrayList<Integer> getCardVisibility() {
         return cardVisibility;
     }

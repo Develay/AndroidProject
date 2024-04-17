@@ -22,6 +22,7 @@ public class ScoreManager {
         preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
     }
 
+    //Méthode de sauvegarde du score
     public void saveHighScore(Resultat resultat, int level) {
         List<Resultat> highScores = getHighScores(level);
 
@@ -33,7 +34,9 @@ public class ScoreManager {
             highScores.add(resultat);
         }
 
+        //Tri des résultats
         Collections.sort(highScores, Comparator.comparing(Resultat::getScore));
+        //Enregistrement des résultats
         SharedPreferences.Editor editor = preferences.edit();
         for (int i = 0; i < highScores.size(); i++) {
             editor.putInt(KEY_HIGH_SCORES + i, highScores.get(i).getScore());
@@ -43,6 +46,7 @@ public class ScoreManager {
         editor.apply();
     }
 
+    //Méthode de récupération des résultats
     public List<Resultat> getHighScores(int level) {
         List<Resultat> highScores = new ArrayList<>();
         for (int i = 0; i < MAX_HIGH_SCORES; i++) {

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.android_project.databinding.ActivityResultsBinding;
 
+// Activité qui affiche les résultats du jeu
 public class Results extends AppCompatActivity {
 
     private ActivityResultsBinding binding;
@@ -25,6 +26,7 @@ public class Results extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
+    // Méthode qui gère la création de l'activité
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +64,7 @@ public class Results extends AppCompatActivity {
         }
     }
 
+    // Méthode qui gère les boutons de l'interface utilisateur
     @Override
     protected void onResume() {
         super.onResume();
@@ -90,7 +93,7 @@ public class Results extends AppCompatActivity {
         mediaPlayer.start();
     }
 
-    // Méthode pour redémarrer le jeu
+    // Méthode qui redémarre le jeu
     public void restartGame() {
         mediaPlayer = MediaPlayer.create(this, R.raw.restart);
         mediaPlayer.start();
@@ -99,7 +102,7 @@ public class Results extends AppCompatActivity {
         finish();
     }
 
-    // Méthode pour ouvrir le tableau des scores
+    // Méthode qui ouvre le tableau des scores
     public void openLeaderBoard() {
         mediaPlayer = MediaPlayer.create(this, R.raw.pit_stop);
         mediaPlayer.start();
@@ -114,11 +117,13 @@ public class Results extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Méthode qui gère le bouton retour
     @Override
     public void onBackPressed() {
         restartGame();
     }
 
+    // Méthode qui libère les ressources MediaPlayer
     @Override
     protected void onDestroy() {
         super.onDestroy();
